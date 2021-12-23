@@ -1,0 +1,3 @@
+include ':NativeAudioRecord'
+include ':app'
+rootProject.name = "sevcDemo"
