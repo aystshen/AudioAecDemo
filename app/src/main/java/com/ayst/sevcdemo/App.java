@@ -23,6 +23,7 @@ public class App extends Application {
                 "acadcaf54f6267a93752b698672d5d96",     // productKey
                 "2eb281bf3fbd1b807ee27cf630dd1305");    // productSecret
         config.setOfflineProfileName("auth.txt");           // 离线授权文件
+        config.setUpdateTrailProfileToOnlineProfile(false);
 
         config.setAudioRecorderType(DUILiteConfig.TYPE_COMMON_ECHO);
         if (config.getAudioRecorderType() == DUILiteConfig.TYPE_COMMON_ECHO) {
