@@ -40,7 +40,7 @@ android {
 
             applicationVariants.all { variant ->
                 variant.outputs.all {
-                    def fileName = "AudioEchoDemo_${variant.buildType.name}_v${variant.versionName}_${releaseTime()}.apk"
+                    def fileName = "AudioAecDemo_${variant.buildType.name}_v${variant.versionName}_${releaseTime()}.apk"
                     outputFileName = fileName
                 }
             }
