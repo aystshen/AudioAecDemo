@@ -8,7 +8,9 @@ import com.aispeech.DUILiteConfig;
 import com.aispeech.DUILiteSDK;
 
 public class App extends Application {
-    private static final String TAG = "App";
+    private static final String TAG = "AudioAecDemo";
+
+    public static boolean isInit = false;
 
     @Override
     public void onCreate() {
@@ -48,6 +50,8 @@ public class App extends Application {
             public void success() {
                 Log.d(TAG, "Authorization success!");
                 DUILiteSDK.setDebugMode(2);
+
+                isInit = true;
             }
 
             @Override

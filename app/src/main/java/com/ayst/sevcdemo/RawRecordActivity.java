@@ -19,7 +19,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class RawRecordActivity extends AppCompatActivity {
-    private static final String TAG = "RawRecordActivity";
+    private static final String TAG = "AudioAecDemo";
 
     private ToggleButton mRecordBtn;
 

@@ -5,6 +5,7 @@ import android.media.AudioManager;
 import android.media.AudioTrack;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.util.Log;
 import android.widget.CompoundButton;
 import android.widget.ToggleButton;
@@ -23,7 +24,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class EchoRecordActivity extends AppCompatActivity {
-    private static final String TAG = "EchoRecordActivity";
+    private static final String TAG = "AudioAecDemo";
 
     private ToggleButton mRecordBtn;
 
@@ -35,11 +36,14 @@ public class EchoRecordActivity extends AppCompatActivity {
     private String mEchoFilePath;
     private FileOutputStream mOriginFos = null;
     private FileOutputStream mEchoFos = null;
+    private Handler mHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_e_c_record);
+
+        mHandler = new Handler(getMainLooper());
 
         // 创建文件路径
         mOriginFilePath = ContextCompat.getExternalFilesDirs(this,
@@ -59,10 +63,23 @@ public class EchoRecordActivity extends AppCompatActivity {
                 bufferSize, AudioTrack.MODE_STREAM);
 
         // 初始化引擎
-        mEchoKernel = new EchoKernel(new MyEchoKernelListener());
-        mEchoKernel.newKernel();
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (App.isInit) {
+                    Log.i(TAG, "create echo kernel");
+                    mEchoKernel = new EchoKernel(new MyEchoKernelListener());
+                    mEchoKernel.newKernel();
+                    mRecordBtn.setEnabled(true);
+                } else {
+                    mHandler.postDelayed(this, 1000);
+                }
+            }
+        }, 1000);
+
 
         mRecordBtn = (ToggleButton) findViewById(R.id.btn_record);
+        mRecordBtn.setEnabled(false);
         mRecordBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {

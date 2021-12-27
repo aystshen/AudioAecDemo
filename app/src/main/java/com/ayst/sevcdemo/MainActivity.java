@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import kr.co.namee.permissiongen.PermissionGen;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "AudioAecDemo";
 
     private Button mRawRecordBtn;
     private Button mECRecordBtn;
