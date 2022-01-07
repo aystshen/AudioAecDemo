@@ -15,9 +15,15 @@
         android:text="原始录音"/>
 
     <Button
-        android:id="@+id/btn_ec_record"
+        android:id="@+id/btn_speech_record"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="降噪消回"/>
+        android:text="思必驰消回"/>
+
+    <Button
+        android:id="@+id/btn_zs_record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="志晟消回"/>
 
 </LinearLayout>

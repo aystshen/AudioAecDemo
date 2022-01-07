@@ -14,7 +14,8 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "AudioAecDemo";
 
     private Button mRawRecordBtn;
-    private Button mECRecordBtn;
+    private Button mSpeechRecordBtn;
+    private Button mZSRecordBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +37,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        mECRecordBtn = (Button) findViewById(R.id.btn_ec_record);
-        mECRecordBtn.setOnClickListener(new View.OnClickListener() {
+        mSpeechRecordBtn = (Button) findViewById(R.id.btn_speech_record);
+        mSpeechRecordBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, EchoRecordActivity.class));
+                startActivity(new Intent(MainActivity.this, SpeechEchoRecordActivity.class));
+            }
+        });
+
+        mZSRecordBtn = (Button) findViewById(R.id.btn_zs_record);
+        mZSRecordBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, ZSEchoRecordActivity.class));
             }
         });
     }

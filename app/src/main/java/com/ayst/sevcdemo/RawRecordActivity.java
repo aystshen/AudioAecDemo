@@ -18,6 +18,9 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+/**
+ * 原始录音
+ */
 public class RawRecordActivity extends AppCompatActivity {
     private static final String TAG = "AudioAecDemo";
 
@@ -31,7 +34,7 @@ public class RawRecordActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_raw_record);
+        setContentView(R.layout.activity_record);
 
         // 创建文件路径
         mLocalFilePath = ContextCompat.getExternalFilesDirs(this,

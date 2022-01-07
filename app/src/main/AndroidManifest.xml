@@ -25,7 +25,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SevcDemo">
         <activity android:name=".RawRecordActivity" />
-        <activity android:name=".EchoRecordActivity" />
+        <activity android:name=".SpeechEchoRecordActivity" />
+        <activity android:name=".ZSEchoRecordActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

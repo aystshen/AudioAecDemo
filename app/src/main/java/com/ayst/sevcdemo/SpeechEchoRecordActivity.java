@@ -23,7 +23,10 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class EchoRecordActivity extends AppCompatActivity {
+/**
+ * 思必驰消回算法
+ */
+public class SpeechEchoRecordActivity extends AppCompatActivity {
     private static final String TAG = "AudioAecDemo";
 
     private ToggleButton mRecordBtn;
@@ -41,7 +44,7 @@ public class EchoRecordActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_e_c_record);
+        setContentView(R.layout.activity_record);
 
         mHandler = new Handler(getMainLooper());
 
