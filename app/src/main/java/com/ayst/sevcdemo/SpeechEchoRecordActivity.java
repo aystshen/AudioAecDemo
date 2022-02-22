@@ -161,8 +161,12 @@ public class SpeechEchoRecordActivity extends AppCompatActivity {
         mAudioRecord.stop();
         mEchoKernel.stopKernel();
         try {
-            mOriginFos.close();
-            mEchoFos.close();
+            if (mOriginFos != null) {
+                mOriginFos.close();
+            }
+            if (mEchoFos != null) {
+                mEchoFos.close();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

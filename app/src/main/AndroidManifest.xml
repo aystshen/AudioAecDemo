@@ -3,6 +3,7 @@
     package="com.ayst.sevcdemo">
 
     <!--获取手机录音机使用权限，识别、语义理解需要用到此权限 -->
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <!-- 授权需要 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />

@@ -18,12 +18,14 @@ public class App extends Application {
 
         // 产品认证需设置 apiKey, productId, productKey, productSecret
         DUILiteConfig config = new DUILiteConfig(
-                "0dea9c20e76c0dea9c20e76c61c03506",      // apiKey
-                "279607580",                            // productId
-                "acadcaf54f6267a93752b698672d5d96",     // productKey
-                "2eb281bf3fbd1b807ee27cf630dd1305");    // productSecret
-        config.setOfflineProfileName("auth.txt");           // 离线授权文件
-        config.setUpdateTrailProfileToOnlineProfile(false);
+                "ae68a4bdaadfae68a4bdaadf61e673af",      // apiKey
+                "279608264",                            // productId
+                "d25a499f21eca904a3840492404c3b6c",     // productKey
+                "93f292ef7013177faf914ab2d8e143cd");    // productSecret
+//        config.setOfflineProfileName("auth.txt");           // 离线授权文件
+//        config.setUpdateTrailProfileToOnlineProfile(true);
+        config.setExtraParameter("DEVICE_NAME",AppUtils.getDeviceId());
+        config.setExtraParameter("DEVICE_ID", AppUtils.getDeviceId());
 
         config.setAudioRecorderType(DUILiteConfig.TYPE_COMMON_ECHO);
         if (config.getAudioRecorderType() == DUILiteConfig.TYPE_COMMON_ECHO) {
