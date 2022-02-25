@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mRawRecordBtn;
     private Button mSpeechRecordBtn;
     private Button mZSRecordBtn;
+    private Button mSpeexRecordBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +51,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, ZSEchoRecordActivity.class));
+            }
+        });
+
+        mSpeexRecordBtn = (Button) findViewById(R.id.btn_speex_record);
+        mSpeexRecordBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, SpeexEchoRecordActivity.class));
             }
         });
     }

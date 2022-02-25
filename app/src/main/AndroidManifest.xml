@@ -28,6 +28,7 @@
         <activity android:name=".RawRecordActivity" />
         <activity android:name=".SpeechEchoRecordActivity" />
         <activity android:name=".ZSEchoRecordActivity" />
+        <activity android:name=".SpeexEchoRecordActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,3 +1,4 @@
+include ':speexdroid'
 include ':NativeAudioRecord'
 include ':app'
-rootProject.name = "sevcDemo"
+rootProject.name = "AudioAecDemo"

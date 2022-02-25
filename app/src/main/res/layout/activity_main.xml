@@ -26,4 +26,10 @@
         android:layout_height="wrap_content"
         android:text="志晟消回"/>
 
+    <Button
+        android:id="@+id/btn_speex_record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SPEEX消回"/>
+
 </LinearLayout>
