@@ -46,9 +46,9 @@ public class RawRecordActivity extends AppCompatActivity {
 
         // 创建AudioTrack
         int bufferSize = AudioTrack.getMinBufferSize(16000,
-                AudioFormat.CHANNEL_OUT_STEREO, AudioFormat.ENCODING_PCM_16BIT);
+                AudioFormat.CHANNEL_OUT_MONO, AudioFormat.ENCODING_PCM_16BIT);
         mAudioTrack = new AudioTrack(AudioManager.STREAM_MUSIC, 16000,
-                AudioFormat.CHANNEL_OUT_STEREO, AudioFormat.ENCODING_PCM_16BIT,
+                AudioFormat.CHANNEL_OUT_MONO, AudioFormat.ENCODING_PCM_16BIT,
                 bufferSize, AudioTrack.MODE_STREAM);
 
         mRecordBtn = (ToggleButton) findViewById(R.id.btn_record);
@@ -129,11 +129,18 @@ public class RawRecordActivity extends AppCompatActivity {
      * @return 2通道PCM数据
      */
     private byte[] trim(byte[] src) {
-        byte[] dest = new byte[src.length / 2];
+//        byte[] dest = new byte[src.length / 2];
+//
+//        for (int i = 0; i < dest.length; i = i + 2) {
+//            dest[i] = src[i * 2 + 2];
+//            dest[i + 1] = src[i * 2 + 3];
+//        }
+
+        byte[] dest = new byte[src.length / 4];
 
         for (int i = 0; i < dest.length; i = i + 2) {
-            dest[i] = src[i * 2 + 2];
-            dest[i + 1] = src[i * 2 + 3];
+            dest[i] = src[i * 4 + 6];
+            dest[i + 1] = src[i * 4 + 7];
         }
 
         return dest;
