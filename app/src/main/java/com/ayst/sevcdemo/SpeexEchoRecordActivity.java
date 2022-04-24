@@ -143,8 +143,11 @@ public class SpeexEchoRecordActivity extends AppCompatActivity {
                     // 消除回声处理
                     short[] outFrame = mEchoCanceller.process(recFrame, refFrame);
 
+                    // 软件增益
+                    short[] amplifyBuf = amplifyPCMData(outFrame, 4.0f);
+
                     // short转byte
-                    byte[] destBuf = short2Byte(outFrame);
+                    byte[] destBuf = short2Byte(amplifyBuf);
 
                     // 引擎处理后数据保存到本地文件（debug）
                     try {
@@ -260,5 +263,27 @@ public class SpeexEchoRecordActivity extends AppCompatActivity {
             byteValue[i * 2 + 1] = (byte) ((data[i] & 0xff00) >> 8);
         }
         return byteValue;
+    }
+
+    /**
+     * PCM软增益
+     *
+     * @param src 原始PCM数据
+     * @param m   放大倍数
+     * @return 增益后PCM数据
+     */
+    short[] amplifyPCMData(short[] src, float m) {
+        short[] dest = new short[src.length];
+        for (int i = 0; i < src.length; i++) {
+            int tmp = (int) (src[i] * m);
+            if (tmp > 32767) { // 溢出处理
+                tmp = 32767;
+            } else if (tmp < -32768) {
+                tmp = -32768;
+            }
+            dest[i] = (short) tmp;
+        }
+
+        return dest;
     }
 }
